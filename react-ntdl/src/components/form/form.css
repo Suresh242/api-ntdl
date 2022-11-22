@@ -1,0 +1,6 @@
+.form{
+    background:linear-gradient(rgb(231, 231, 162), rgb(159, 207, 159));
+    padding:1rem 2rem;
+    border-radius:10px;
+    box-shadow: -5px 5px 10px 
+}

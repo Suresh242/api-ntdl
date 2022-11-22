@@ -3,9 +3,11 @@ const app = express();
 const PORT = 8000;
 
 import morgan from "morgan";
+import cors from "cors";
 //middleware
 app.use(morgan("dev"));
 app.use(express.json());
+app.use(cors());
 
 //db connection
 import mongoConnect from "./src/config/dbConfig.js";

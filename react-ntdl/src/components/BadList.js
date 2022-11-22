@@ -1,16 +1,47 @@
 import React from "react";
 
-export const BadList = ({ badList, handleOnDelete, taskSwitcher }) => {
+export const BadList = ({
+  badList,
+  handleOnDelete,
+  taskSwitcher,
+  handleOnCheck,
+  idsToDelete,
+  handleOnSelectAll,
+  allBadSelected,
+  
+}) => {
   const ttlHr = badList.reduce((acc, item) => acc + item.hr, 0);
   return (
     <div className="col-md">
       <h2 className="text-center">Bad List</h2>
       <hr />
+      {
+        badList.length>1 && (<div>
+          <input 
+          type ="checkbox" 
+          className="form-check-input" 
+          onChange={handleOnSelectAll}
+          allBadSelected={allBadSelected}
+          value="bad"
+          />Select All
+        </div>)
+      }
+      
       <table className="table table-striped table-hover">
         <tbody id="bad-task">
           {badList.map((item, i) => (
             <tr key={i}>
-              <td>{i + 1}</td>
+              <td>
+                <input
+                  type="checkbox"
+                  className="form-check-input"
+                  value={item._id}
+                  onChange={handleOnCheck}
+                  handleOnSelectAll={handleOnSelectAll}
+                  allBadSelected={allBadSelected}
+                  checked={idsToDelete.includes(item._id)}
+                />{""}
+              </td>
               <td>{item.task}</td>
               <td>{item.hr}</td>
               <td class="text-end">

@@ -58,12 +58,12 @@ router.delete("/", async (req, res) => {
 
   if (result?.deletedCount) {
     res.json({
-      stauts: "success",
+      status: "success",
       message: "The selected task has been delete",
     });
   } else {
     res.json({
-      stauts: "success",
+      status: "success",
       message: "No thing to delete",
     });
   }

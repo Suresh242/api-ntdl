@@ -4,9 +4,11 @@ import { TaskList } from "./TaskList";
 
 export const List = ({
   tasks,
-  handleOnDelete,
+  
   taskSwitcher,
   handleOnCheck,
+  handleOnSelectAll,
+  idsToDelete,
 }) => {
   const entryList = tasks.filter((item) => item.type === "entry");
   const badList = tasks.filter((item) => item.type === "bad");
@@ -15,14 +17,21 @@ export const List = ({
     <div className="row mt-5 g-2">
       <TaskList
         entryList={entryList}
-        handleOnDelete={handleOnDelete}
+        // handleOnDelete={handleOnDelete}
         taskSwitcher={taskSwitcher}
         handleOnCheck={handleOnCheck}
+        handleOnSelectAll={ handleOnSelectAll}
+        idsToDelete={idsToDelete}
       />
       <BadList
         badList={badList}
-        handleOnDelete={handleOnDelete}
+        // handleOnDelete={handleOnDelete}
         taskSwitcher={taskSwitcher}
+        handleOnCheck={handleOnCheck}
+        handleOnSelectAll={ handleOnSelectAll}
+        idsToDelete={idsToDelete}
+
+
       />
     </div>
   );
